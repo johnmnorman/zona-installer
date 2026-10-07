@@ -30,9 +30,6 @@ demonized_url="https://github.com/themrdemonized/xray-monolith/releases/download
 mt_test="STALKER-Anomaly-modded-exes-MT-TEST_2026.8.17.zip"
 mt_test_url="https://github.com/themrdemonized/xray-monolith/releases/download/2026.8.17/STALKER-Anomaly-modded-exes-MT-TEST_2026.8.17.zip"
 
-rich_presence="winediscordipcbridge.exe"
-rich_presence_url="https://github.com/0e4ef622/wine-discord-ipc-bridge/releases/download/v0.0.3/winediscordipcbridge.exe"
-
 mo2="Mod.Organizer-2.5.2.7z"
 mo2_url="https://github.com/ModOrganizer2/modorganizer/releases/download/v2.5.2/Mod.Organizer-2.5.2.7z"
 
@@ -240,7 +237,6 @@ CONTY=\"\$INSTALL_DIR/conty_lite.sh\"
 CONTY_VIRTUAL_PREFIX=\"\$HOME/Games/umu/umu-default\"
 CONTY_HOME=\"\$INSTALL_DIR/home\"
 
-HOME_DIR=\$CONTY_HOME \$CONTY umu-run \$CONTY_VIRTUAL_PREFIX/drive_c/$rich_presence &
 HOME_DIR=\$CONTY_HOME \$CONTY umu-run \$CONTY_VIRTUAL_PREFIX/drive_c/mo2/ModOrganizer.exe"
 
 mkdir_if_absent $INSTALL_DIR
@@ -308,8 +304,6 @@ download $profiles $zona_profiles_url
 download $mo2 $mo2_url
 
 download $conty $conty_url
-
-download $rich_presence $rich_presence_url
 
 if [ "$exe_mode" == "1" ]; then
   download $demonized $demonized_url
@@ -396,9 +390,6 @@ ln -s "$DRIVE_C/anomaly" "$LINK_DIR/anomaly"
 
 section_change "EXTRACTING FILES"
 
-
-log_and_echo "Installing Discord Rich Presence Bridge into $DRIVE_C ..."
-cp "$TEMP_DIR/$rich_presence" "$DRIVE_C"
 
 log_and_echo "Extracting $anomaly to $DRIVE_C/anomaly..."
 7z x -y -o"$DRIVE_C/anomaly" $TEMP_DIR/$anomaly 
